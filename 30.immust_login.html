@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <title>明新科技大學資訊管理系</title>
+  <link href="https://cdn.bootcss.com/flexslider/2.6.3/flexslider.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcss.com/jquery/2.2.2/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/flexslider/2.6.3/jquery.flexslider-min.js"></script>
+  <script>
+    $(window).on('load', function() {
+      $('.flexslider').flexslider({
+        animation: "slide",
+        rtl: true
+      });
+    });
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: gray;
+      text-align: center;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    .top {
+      background-color: white;
+    }
+
+    .top .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    .top .logo {
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .top .logo img {
+      width: 100px;
+      vertical-align: middle;
+    }
+
+    .top .top-nav {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .top .top-nav a, .top .top-nav label {
+      margin-left: 20px;
+      text-decoration: none;
+      color: gray;
+      cursor: pointer;
+    }
+
+    .nav {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+    }
+
+    .nav li {
+      position: relative;
+    }
+
+    .nav li a {
+      display: block;
+      color: white;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .nav li:hover {
+      background-color: #111;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      min-width: 160px;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+    }
+
+    .dropdown-content li a {
+      color: white;
+      padding: 12px 16px;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .slider {
+      background-color: black;
+    }
+
+    .banner {
+      background-image: linear-gradient(#ABDCFF, #0396FF);
+      padding: 30px;
+    }
+
+    .banner h1 {
+      padding: 20px;
+    }
+
+    .faculty {
+      background-color: white;
+      padding: 40px;
+    }
+
+    .faculty h2 {
+      font-size: 25px;
+      color: rgb(50, 51, 52);
+      padding-bottom: 40px;
+    }
+
+    .faculty .container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+
+    .faculty .teacher {
+      text-decoration: none;
+      margin: 10px;
+    }
+
+    .faculty .teacher img {
+      height: 200px;
+      width: 200px;
+      border-radius: 8px;
+    }
+
+    .faculty .teacher h3 {
+      background-color: rgba(39, 40, 34, 0.5);
+      color: white;
+      margin-top: -40px;
+    }
+
+    .contact {
+      margin: 30px 0;
+    }
+
+    .contact h2 {
+      color: rgb(54, 82, 110);
+      font-size: 25px;
+    }
+
+    .contact .infos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .contact .infos .left {
+      margin-right: 30px;
+      text-align: left;
+    }
+
+    .contact .infos .left b {
+      margin-top: 10px;
+      display: block;
+      font-size: 18px;
+    }
+
+    .contact .infos .left span {
+      margin-top: 5px;
+      padding-left: 20px;
+      display: block;
+      font-size: 16px;
+    }
+
+    .contact .infos .right iframe {
+      width: 100%;
+      max-width: 400px;
+      height: 200px;
+      border: 1px solid rgba(39, 40, 34, 0.5);
+    }
+
+    .footer {
+      background-color: rgb(25, 26, 30);
+      color: white;
+      padding: 30px 0;
+    }
+
+    /* 登入彈窗 */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      box-shadow: 0 0 10px #000;
+      z-index: 10;
+      width: 300px;
+      border-radius: 8px;
+    }
+
+    .modal span {
+      float: right;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .modal input {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="top">
+    <div class="container">
+      <div class="logo">
+        <img src="https://github.com/shhuangmust/html/raw/111-1/IMMUST_LOGO.JPG">
+        明新科技大學資訊管理系
+      </div>
+      <div class="top-nav">
+        <a href="#">明新科大</a>
+        <a href="#">明新管理學院</a>
+        <label onclick="document.getElementById('login').style.display='block'">登入</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <ul>
+      <li><a href="#home">首頁</a></li>
+      <li><a href="#introduction">系所簡介</a></li>
+      <li class="dropdown">
+        <a href="#faculty">成員簡介</a>
+        <ul class="dropdown-content">
+          <li><a href="#faculty">黃老師</a></li>
+          <li><a href="#faculty">李老師</a></li>
+          <li><a href="#faculty">應老師</a></li>
+        </ul>
+      </li>
+      <li><a href="#about">相關資訊</a></li>
+    </ul>
+  </div>
+
+  <div class="slider">
+    <div class="flexslider">
+      <ul class="slides">
+        <li><img src="https://github.com/shhuangmust/html/raw/111-1/slider1.JPG" /></li>
+        <li><img src="https://github.com/shhuangmust/html/raw/111-1/slider2.JPG" /></li>
+        <li><img src="https://github.com/shhuangmust/html/raw/111-1/slider3.JPG" /></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="banner" id="introduction">
+    <h1>系所簡介</h1>
+    <h1>歷年教育部評鑑皆榮獲一等</h1>
+    <h1>明新科技大學資訊管理系</h1>
+    <h1>全國私立科大第一資管系</h1>
+  </div>
+
+  <div class="faculty" id="faculty">
+    <h2>師資介紹</h2>
+    <div class="container">
+      <a class="teacher" href="#">
+        <img src="https://github.com/shhuangmust/html/raw/111-1/faculty1.jpg" />
+        <h3>黃老師</h3>
+      </a>
+      <a class="teacher" href="#">
+        <img src="https://github.com/shhuangmust/html/raw/111-1/faculty2.jpg" />
+        <h3>李老師</h3>
+      </a>
+      <a class="teacher" href="#">
+        <img src="https://github.com/shhuangmust/html/raw/111-1/faculty3.jpg" />
+        <h3>應老師</h3>
+      </a>
+    </div>
+  </div>
+
+  <div class="contact" id="about">
+    <h2>相關資訊</h2>
+    <div class="infos">
+      <div class="left">
+        <b>明新科技大學管理學院大樓二樓</b>
+        <span>304新竹縣新豐鄉新興路1號</span>
+        <b>電話: 03-5593142</b>
+        <span>分機: 3431、3432、3433</span>
+        <b>傳真: 03-5593142</b>
+        <span>分機: 3440</span>
+      </div>
+      <div class="right">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18..." allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2022 明新科技大學資訊管理系 Department of Information Management, MUST. 維護者 Tony SHHuang
+  </div>
+
+  <!-- 登入視窗 -->
+  <div id="login" class="modal">
+    <span onclick="document.getElementById('login').style.display='none'">&times;</span>
+    <h3>管理系統登入</h3>
+    <form method="post" action="10.login.php">
+      <label for="id">帳號：</label>
+      <input type="text" name="id" id="id"><br>
+      <label for="pwd">密碼：</label>
+      <input type="password" name="pwd" id="pwd"><br><br>
+      <input type="submit" value="登入">
+      <input type="reset" value="清除">
+    </form>
+  </div>
+</body>
+</html>
